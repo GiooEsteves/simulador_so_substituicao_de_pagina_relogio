@@ -1,0 +1,1 @@
+# simulador_so_substituicao_de_pagina_relogio
