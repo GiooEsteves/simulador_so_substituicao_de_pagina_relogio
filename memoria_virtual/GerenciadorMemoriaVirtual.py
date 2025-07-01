@@ -6,19 +6,19 @@ class GerenciadorMemoriaVirtual:
         self.ram = MemoriaRAM()
         self.hd = MemoriaHD()
 
-    def acessar_endereco(self, thread_id, pagina):
+    # o processo acessa um endereço da memoria  
+    def acessar_endereco(self, thread_id, pagina, operacao):
         print(f"[Thread {thread_id}] Acessando pagina {pagina}")
 
         if self.ram.contem_pagina(pagina):
-            # A página está na RAM, basta usar
-            print(f"[Thread {thread_id}] Pagina {pagina} já está na RAM (sem falta)")
-            self.ram.acessar_pagina(pagina)
+            # A página está na RAM
+            print(f"[Thread {thread_id}] Pagina {pagina} está na RAM")
+            self.ram.acessar_pagina(pagina, operacao)
 
         elif self.hd.contem_pagina(pagina):
-            # Falta de página: carrega do HD
+            # Pagina não está na RAM, carrega do HD
             print(f"[Thread {thread_id}] Falta de Pagina: Carregando pagina {pagina} do HD")
-            self.ram.adicionar_pagina(pagina)
+            self.ram.adicionar_pagina(pagina, operacao)
 
-        else:
-            # Página inválida
+        else: # Pagina não está nem na RAM em uso e nem no HD armazenada (Página inválida)
             print(f"[Thread {thread_id}] Erro: Pagina {pagina} não encontrada no HD.")
