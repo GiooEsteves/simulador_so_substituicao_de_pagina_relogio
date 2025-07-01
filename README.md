@@ -1,1 +1,1 @@
-# simulador_so_substituicao_de_pagina_relogio
+# Simulador de um sistema operacional com algoritmo de substituicao de pagina por relogio
