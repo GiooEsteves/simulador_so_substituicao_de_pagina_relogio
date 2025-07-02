@@ -1,5 +1,6 @@
 from ram.memoria_ram import MemoriaRAM
 from hd.memoria_hd import MemoriaHD
+from constantes import TAMANHO_VIRTUAL
 
 class GerenciadorMemoriaVirtual:
     def __init__(self):
@@ -8,6 +9,11 @@ class GerenciadorMemoriaVirtual:
 
     # o processo acessa um endereço da memoria  
     def acessar_endereco(self, thread_id, pagina, operacao):
+        # Verifica se a pagina é comportada na memoria virtual
+        if pagina < 0 or pagina >= TAMANHO_VIRTUAL:
+            print(f"[Thread {thread_id}] Erro Fatal: Página {pagina} é maior que o tamanho de momoria virtual permitida")
+            return
+
         print(f"[Thread {thread_id}] Acessando pagina {pagina}")
 
         if self.ram.contem_pagina(pagina):
