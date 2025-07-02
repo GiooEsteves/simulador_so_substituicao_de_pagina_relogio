@@ -11,8 +11,8 @@ if __name__ == "__main__":
     gerenciador = GerenciadorMemoriaVirtual()
 
     # Acessos simulados por cada processo de endereços de paginas virtuais
-    acessos_thread_1 = [(0, "R"), (1, "W"), (2, "R"), (3, "W")] # lista de tuplas
-    acessos_thread_2 = [(2, "R"), (4, "W"), (6, "R"), (7, "W")]
+    acessos_thread_1 = [(0, "R"), (1, "W"), (2, "R"), (3, "W")]
+    acessos_thread_2 = [(2, "R"), (4, "W"), (6, "R"), (6, "W")]
 
     # Threads simultâneas acessando memória
     thread1 = threading.Thread(target=simular_processo, args=(gerenciador, 1, acessos_thread_1))
