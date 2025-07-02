@@ -1,6 +1,6 @@
 import threading  # biblioteca para simular múltiplos processos concorrentes 
 import time
-from memoria_virtual.GerenciadorMemoriaVirtual import GerenciadorMemoriaVirtual
+from memoria_virtual.gerenciador_memoria_virtual import GerenciadorMemoriaVirtual
 
 def simular_processo(gerenciador, thread_id, acessos):
     for pagina, operacao in acessos:
